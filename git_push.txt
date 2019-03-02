@@ -1,0 +1,5 @@
+git diff
+git add .
+git commit -m "description of change"
+git push origin master
+
