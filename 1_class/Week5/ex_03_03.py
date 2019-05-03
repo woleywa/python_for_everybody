@@ -1,0 +1,8 @@
+score = float(input("Please input your score: "))
+if score > 1.0 : print("This is not a valid score, please input a number between 0 and 1")
+elif score < 0 : print("This is not a valid score, please input a number between 0 and 1")
+elif score >= 0.9 : print("Congratulations, you've got an A")
+elif score >= 0.8 : print("B")
+elif score>= 0.7 : print("Only a C this time, you can do better!")
+elif score>= 0.6 : print("Quite close but still passed. You're a slacker")
+else : print ("You failed this class. Your parents have been informed and your inheritance cleared")
