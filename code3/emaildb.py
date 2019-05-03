@@ -6,16 +6,14 @@ cur = conn.cursor()
 cur.execute('DROP TABLE IF EXISTS Counts')
 
 cur.execute('''
-CREATE TABLE Counts (email TEXT, count INTEGER, organization TEXT)''')
+CREATE TABLE Counts (email TEXT, count INTEGER)''')
 
 fname = input('Enter file name: ')
-if (len(fname) < 1): fname = 'mbox.txt'
+if (len(fname) < 1): fname = 'mbox-short.txt'
 fh = open(fname)
 for line in fh:
     if not line.startswith('From: '): continue
     pieces = line.split()
-    print(pieces)
-    input('Please press enter to continue')
     email = pieces[1]
     cur.execute('SELECT count FROM Counts WHERE email = ? ', (email,))
     row = cur.fetchone()
@@ -29,7 +27,6 @@ for line in fh:
 
 # https://www.sqlite.org/lang_select.html
 sqlstr = 'SELECT email, count FROM Counts ORDER BY count DESC LIMIT 10'
-countorg = 'SELECT email, count FROM Counts GROUP BY '
 
 for row in cur.execute(sqlstr):
     print(str(row[0]), row[1])

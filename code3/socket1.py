@@ -9,8 +9,6 @@ while True:
     data = mysock.recv(512)
     if len(data) < 1:
         break
-    ## wait = input("Please press Enter")
     print(data.decode(),end='')
-    
 
 mysock.close()

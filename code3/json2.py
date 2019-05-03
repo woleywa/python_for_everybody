@@ -12,8 +12,6 @@ data = '''
   }
 ]'''
 
-data = '''[ "Glenn", "Sally", "Jen" ]'''
-print(type("data"))
 info = json.loads(data)
 print('User count:', len(info))
 
